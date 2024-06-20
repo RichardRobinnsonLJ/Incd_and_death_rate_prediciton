@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+body {
+    height: 220vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #3f5efc, #fc466b);
+}
+
+form {
+    width: 40rem;
+    height: 100rem;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, .37);
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+form:before {
+    content: '';
+    position: absolute;
+    bottom: 72%;
+    right: 63%;
+    width: 200px;
+    height: 200px;
+    background: magenta;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: .8;
+
+
+}
+
+form::after {
+    content: '';
+    position: absolute;
+    top: 195%;
+    left: 62%;
+    width: 200px;
+    height: 200px;
+    background: magenta;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: .8;
+
+
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 3px;
+    margin-bottom: 5%;
+    opacity: 0.7;
+}
+
+label {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin-left: 10%;
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 80%;
+    margin: 5% auto;
+    margin-bottom: 4%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    opacity: 0.8;
+}
+
+button {
+    width: 50%;
+    margin: 3% auto;
+    color: white;
+    font-size: 15px;
+    opacity: .7;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 5px 0 rgba(31, 38, 135, .37);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+a {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    opacity: .7;
+}
+    </style>
+    <title>Form Example</title>
+</head>
+<body>
+    
+    
+    <form action="/incd" method="post">
+        <h1>Prediction Form</h1>
+        <label for="fips">FIPS:</label>
+        <input type="text" name="fips" id="fips"><br>
+
+        <label for="abc">Age-Adjusted Incidence Rate(ÃŠ) - cases per 100,000</label>
+        <input type="text" name="abc" id="abc"><br>
+
+        <label for="lower">Lower 95% Confidence Interval:</label>
+        <input type="text" name="lower" id="lower"><br>
+
+        <label for="upper">Upper 95% Confidence Interval:</label>
+        <input type="text" name="upper" id="upper"><br>
+
+        <label for="avg">Average Annual Count:</label>
+        <input type="text" name="avg" id="avg"><br>
+
+        <label for="rate">Recent 5-Year Trend (Ë†) in Incidence Rates:</label>
+        <input type="text" name="rate" id="rate"><br>
+
+        <label for="lowconf">Lower 95% Confidence Interval.1:</label>
+        <input type="text" name="lowconf" id="lowconf"><br>
+
+        <label for="upconf">Upper 95% Confidence Interval.1:</label>
+        <input type="text" name="upconf" id="upconf"><br>
+
+        <input type="submit" value="Submit">
+        
+    </form>
+    
+    {% if predicted_value %}
+    <p>Predicted Value: {{ predicted_value }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
